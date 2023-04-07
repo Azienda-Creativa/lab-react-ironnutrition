@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import allFoods from './foods.json';
+import { useState } from 'react';
+import FoodList from './components/FoodList';
+import AddFoodForm from './components/AddFoodForm';
 import './App.css';
+import { Row } from 'antd';
+import SearchBar from './components/SearchBar';
 
-function App() {
+function App(props) {
+  // API FOODS
+  const [foods, setFood] = useState(allFoods);
+
+  function addFood(newFood) {
+    const foodsSorted = [...foods, newFood];
+    setFood(foodsSorted);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Row>
+        <SearchBar className="form" />
+      </Row>
+      <Row className="row">
+        <AddFoodForm addFood={addFood} />
+      </Row>
+      <FoodList food={foods} />
     </div>
   );
 }

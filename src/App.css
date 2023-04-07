@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+#card {
+  text-align: left;
+}
+
+.row {
+  margin-top: 30px;
+  width: 100vw;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  gap: 10px;
+  justify-content: center;
+}
