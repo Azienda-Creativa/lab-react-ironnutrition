@@ -1,24 +1,24 @@
-import { AudioOutlined } from '@ant-design/icons';
-import { Input, Space } from 'antd';
-const { Search } = Input;
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
-const onSearch = (value) => console.log(value);
-const SearchBar = () => (
-  <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
-    <Search
-      placeholder="input search text"
-      allowClear
-      enterButton="Search"
-      size="large"
-      onSearch={onSearch}
-    />
-  </Space>
-);
+import { Row, Input } from 'antd';
+import Search from 'antd/es/transfer/search';
+import { useState } from 'react';
+
+function SearchBar({ onSearch }) {
+  const [serch, setSearch] = useState('');
+  const handleSearch = (value) => {
+    onSearch(value);
+    console.log('Search query:', value);
+    setSearch();
+  };
+
+  return (
+    <Row style={{ display: 'flex', justifyContent: 'center' }}>
+      <Input.Search
+        placeholder="Search for something"
+        onSearch={handleSearch}
+        style={{ width: 200 }}
+      />
+    </Row>
+  );
+}
+
 export default SearchBar;

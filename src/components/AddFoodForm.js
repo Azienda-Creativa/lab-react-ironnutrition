@@ -1,4 +1,4 @@
-import { Divider, Input } from 'antd';
+import { Divider, Input, Button } from 'antd';
 import { useState } from 'react';
 
 // CREATE NEW FOOD
@@ -57,7 +57,13 @@ function AddFoodForm(props) {
         onChange={(e) => setServings(e.target.value)}
       />
 
-      <button type="submit">Create</button>
+      <Button
+        className="btn"
+        type="submit"
+        style={{ backgroundColor: '#1677ff', color: '#fff' }}
+      >
+        Create
+      </Button>
     </form>
   );
 }

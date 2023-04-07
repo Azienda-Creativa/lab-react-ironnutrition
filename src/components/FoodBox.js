@@ -1,8 +1,9 @@
 import { Card, Col, Button, Row } from 'antd';
-import ColumnGroup from 'antd/es/table/ColumnGroup';
 
-// Iteration 2
-function FoodBox({ food }) {
+function FoodBox({ food, onDelete }) {
+  const handleDelete = () => {
+    onDelete(food.name);
+  };
   return (
     <Card
       id="card"
@@ -15,9 +16,8 @@ function FoodBox({ food }) {
       <p>
         <b>Total Calories: {food.calories * food.servings} </b> kcal
       </p>
-      <Button type="primary" className="btn">
-        {' '}
-        Delete{' '}
+      <Button type="primary" className="btn" onClick={handleDelete}>
+        Delete
       </Button>
     </Card>
   );
